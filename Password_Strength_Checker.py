@@ -49,6 +49,14 @@ def Check_Special_Char(password):
             continue
     return False
 
+def Calculate_Strength(score):
+    if score < 2:
+        return "Weak"
+    elif score < 4:
+        return "Medium"
+    else:
+        return "Strong"
+
 
 running = True
 
@@ -82,5 +90,7 @@ while running:
         score = score + 1
     else:
         rulesFailed.append("Special character rule")
+
+    print(f"Password strength: {Calculate_Strength(score)}")
 
     running = Go_Again()   
