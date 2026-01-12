@@ -40,6 +40,15 @@ def Check_Number(password):
             continue
     return False
 
+def Check_Special_Char(password):
+    specialChars = ['!','@','\#','$','%','^','&','*','(',')','_','+','-','=','?','/','.']
+    for i in range(len(password)):
+        if password[i] in specialChars:
+            return True
+        else:
+            continue
+    return False
+
 
 running = True
 
@@ -68,5 +77,10 @@ while running:
         score = score + 1
     else:
         rulesFailed.append("Number rule")
+
+    if Check_Special_Char(password) == True:
+        score = score + 1
+    else:
+        rulesFailed.append("Special character rule")
 
     running = Go_Again()   
