@@ -69,28 +69,32 @@ while running:
     if Check_Length(password) == True:
         score = score + 1
     else:
-        rulesFailed.append("Length rule")
+        rulesFailed.append("Ensure your password is at least 8 characters long")
 
     if Check_Uppercase(password) == True:
         score = score + 1
     else:
-        rulesFailed.append("Uppercase rule")
+        rulesFailed.append("Use an uppercase character")
 
     if Check_Lowercase(password) == True:
         score = score + 1
     else:
-        rulesFailed.append("Lowercase rule")
+        rulesFailed.append("Use a lowercase character")
 
     if Check_Number(password) == True:
         score = score + 1
     else:
-        rulesFailed.append("Number rule")
+        rulesFailed.append("Use a number")
 
     if Check_Special_Char(password) == True:
         score = score + 1
     else:
-        rulesFailed.append("Special character rule")
+        rulesFailed.append("Use a special character")
 
     print(f"Password strength: {Calculate_Strength(score)}")
+    if len(rulesFailed) > 0:
+        print("To improve your password:")
+        for i in range(len(rulesFailed)):
+            print(rulesFailed[i])
 
     running = Go_Again()   
