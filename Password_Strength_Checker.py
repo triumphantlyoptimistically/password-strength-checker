@@ -24,6 +24,14 @@ def Check_Uppercase(password):
             continue
     return False
 
+def Check_Lowercase(password):
+    for i in range(len(password)):
+        if password[i - 1].islower():
+            return True
+        else:
+            continue
+    return False
+
 
 running = True
 
@@ -43,4 +51,9 @@ while running:
     else:
         rulesFailed.append("Uppercase rule")
 
-    running = Go_Again()
+    if Check_Lowercase(password) == True:
+        score = score + 1
+    else:
+        rulesFailed.append("Lowercase rule")
+
+    running = Go_Again()   
