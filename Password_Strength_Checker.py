@@ -32,6 +32,14 @@ def Check_Lowercase(password):
             continue
     return False
 
+def Check_Number(password):
+    for i in range(len(password)):
+        if password[i - 1].isnumeric():
+            return True
+        else:
+            continue
+    return False
+
 
 running = True
 
@@ -55,5 +63,10 @@ while running:
         score = score + 1
     else:
         rulesFailed.append("Lowercase rule")
+
+    if Check_Number(password) == True:
+        score = score + 1
+    else:
+        rulesFailed.append("Number rule")
 
     running = Go_Again()   
